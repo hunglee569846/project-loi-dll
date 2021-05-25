@@ -32,7 +32,7 @@ namespace WebSite.Core.Infrastructure.Services
                 return new SearchResult<MonHocSearchViewModel> { TotalRows = 0, Data = null,Code = -1 ,Message="Học kỳ không tồn tại."};
             return await _imonhocRepository.SelectAllByIdHocKy(idhocky);
         }
-
+        //Khoi tao mon hoc tien quyet
         public async Task<ActionResultResponese<string>> InsertAsync(string mamonhoc,string tenmonhoc, string idhocky,TypeDataApprover typeApprover)
         {
             var idmonhoc = Guid.NewGuid().ToString();
