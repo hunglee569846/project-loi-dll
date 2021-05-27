@@ -1,11 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Swashbuckle.AspNetCore.Annotations;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using WebSite.Core.Domain.IServices;
 using WebSite.Core.Domain.ModelMeta;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace WebSite.Core.API.Controllers
 {

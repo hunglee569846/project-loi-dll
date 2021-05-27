@@ -12,7 +12,7 @@ namespace WebSite.Core.Domain.Models
         public string IdGVHD { get; set; }
         public string MaGVHD { get; set; }
         public string TenGVHD { get; set; }
-        public double? DiemSo { get; set; }
+        public float? DiemSo { get; set; }
         public string NhanXet { get; set; }
         public DateTime? NgayTao { get; set; }
         public DateTime? NgaySua { get; set; }

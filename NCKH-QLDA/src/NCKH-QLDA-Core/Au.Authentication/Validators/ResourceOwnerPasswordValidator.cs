@@ -41,6 +41,7 @@ namespace Au.Authentication.Validators
         public Task ValidateAsync(ResourceOwnerPasswordValidationContext context)
         {
             //domain tham so đầu vào
+            var password = context.Request.Raw.Get("password");
            var userName = context.Request.Raw.Get("userName");
             if (string.IsNullOrEmpty(userName))
             {

@@ -190,6 +190,10 @@
               "target": "Package",
               "version": "[2.2.1, )"
             },
+            "NSwag.Annotations": {
+              "target": "Package",
+              "version": "[13.11.1, )"
+            },
             "Serilog.AspNetCore": {
               "target": "Package",
               "version": "[3.4.0, )"

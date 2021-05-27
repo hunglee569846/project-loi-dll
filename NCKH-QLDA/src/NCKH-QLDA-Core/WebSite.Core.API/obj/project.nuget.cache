@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "c8IqW1PSqCb1NvcWASkUHM4WsFtPV685EdObPn5rVFBs/C+9znkJUukfk0OrC5kx83atU1k3nTImNlPx8CI5/A==",
+  "dgSpecHash": "OCiG4oqoBZTM5/3Ubqb+BsTHm7cg1QhminWDItEDLI6AYCxP7HTBRCoRgA6zYHwC3ukAplzySrU9efvEqRe2Sg==",
   "success": true,
   "projectFilePath": "C:\\Users\\HUNG7510\\Desktop\\NCKH-QLDA\\project-loi-dll\\NCKH-QLDA\\src\\NCKH-QLDA-Core\\WebSite.Core.API\\WebSite.Core.API.csproj",
   "expectedPackageFiles": [
@@ -85,6 +85,7 @@
     "C:\\Users\\HUNG7510\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\HUNG7510\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\HUNG7510\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
+    "C:\\Users\\HUNG7510\\.nuget\\packages\\nswag.annotations\\13.11.1\\nswag.annotations.13.11.1.nupkg.sha512",
     "C:\\Users\\HUNG7510\\.nuget\\packages\\rijndael256\\3.2.0\\rijndael256.3.2.0.nupkg.sha512",
     "C:\\Users\\HUNG7510\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\HUNG7510\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
@@ -231,5 +232,12 @@
     "C:\\Users\\HUNG7510\\.nuget\\packages\\system.xml.xpath\\4.0.1\\system.xml.xpath.4.0.1.nupkg.sha512",
     "C:\\Users\\HUNG7510\\.nuget\\packages\\system.xml.xpath.xdocument\\4.0.1\\system.xml.xpath.xdocument.4.0.1.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\HUNG7510\\Desktop\\NCKH-QLDA\\project-loi-dll\\NCKH-QLDA\\src\\NCKH-QLDA-Core\\WebSite.Core.API\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
