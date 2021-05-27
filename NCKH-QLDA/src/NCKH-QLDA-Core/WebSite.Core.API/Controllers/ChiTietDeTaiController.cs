@@ -2,13 +2,14 @@
 using Microsoft.AspNetCore.Mvc;
 using NCKH.Infrastruture.Binding;
 using Swashbuckle.AspNetCore.Annotations;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using WebSite.Core.Domain.IServices;
 using WebSite.Core.Domain.ModelMeta;
 
 namespace WebSite.Core.API.Controllers
 {
-   // [Authorize]
+    [Authorize]
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
@@ -33,7 +34,19 @@ namespace WebSite.Core.API.Controllers
             return Ok(result);
         }
 
-        
+        [SwaggerOperation(Summary = "InsertAsyncListChiTietDeTai", Description = "Requires login verification!", OperationId = "InsertAsyncListChiTietDeTai", Tags = new[] { "ChiTietDeTai" })]
+        [AcceptVerbs("POST"), Route("ListChiTietDeTai/{idGVHD}")]
+        public async Task<IActionResult> InsertListChitietDTAsync([FromBody]List<ChiTietDeTaiListDeTaiMeta> listchitietdetai,string idGVHD)
+        {
+            var result = await _chitietdetaiService.InserListDeTaiAsync(listchitietdetai, idGVHD, CurrentUser.MaGiangVien, CurrentUser.FullName);
+            if (result.Code <= 0)
+            {
+                return BadRequest(result);
+            }
+            return Ok(result);
+        }
+
+
         [SwaggerOperation(Summary = "SerchByIdDeTai", Description = "Requires login verification!", OperationId = "SerchByIdDeTai", Tags = new[] { "ChiTietDeTai" })]
         [AcceptVerbs("GET"), Route("SerchByIdDeTai/{iddetai}")]
         public async Task<IActionResult> SearchAsync(string iddetai)

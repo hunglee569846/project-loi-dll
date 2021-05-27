@@ -1223,6 +1223,15 @@
           "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {}
         }
       },
+      "NSwag.Annotations/13.11.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/NSwag.Annotations.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/NSwag.Annotations.dll": {}
+        }
+      },
       "Rijndael256/3.2.0": {
         "type": "package",
         "dependencies": {
@@ -5228,6 +5237,24 @@
         "lib/netstandard2.0/Newtonsoft.Json.Bson.xml",
         "newtonsoft.json.bson.1.0.2.nupkg.sha512",
         "newtonsoft.json.bson.nuspec"
+      ]
+    },
+    "NSwag.Annotations/13.11.1": {
+      "sha512": "S+rKhnZWNfR2v7jdsqOhYhRv4Ae0+vZ8oBL6dBILndGP4CrVH64TggnLzzdKk2BOvmjCLUJCURNc+lANrqAPtA==",
+      "type": "package",
+      "path": "nswag.annotations/13.11.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "NuGetIcon.png",
+        "lib/net45/NSwag.Annotations.dll",
+        "lib/net45/NSwag.Annotations.xml",
+        "lib/netstandard1.0/NSwag.Annotations.dll",
+        "lib/netstandard1.0/NSwag.Annotations.xml",
+        "lib/netstandard2.0/NSwag.Annotations.dll",
+        "lib/netstandard2.0/NSwag.Annotations.xml",
+        "nswag.annotations.13.11.1.nupkg.sha512",
+        "nswag.annotations.nuspec"
       ]
     },
     "Rijndael256/3.2.0": {
@@ -11124,6 +11151,7 @@
       "Microsoft.AspNetCore.Server.IIS >= 2.2.6",
       "Microsoft.AspNetCore.Server.IISIntegration >= 2.2.1",
       "NCKH.Infrastruture.Binding >= 1.0.0",
+      "NSwag.Annotations >= 13.11.1",
       "Serilog.AspNetCore >= 3.4.0",
       "Serilog.Settings.Configuration >= 3.1.0",
       "Serilog.Sinks.MSSqlServer >= 5.5.1",
@@ -11135,23 +11163,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\HUY HUNG\\.nuget\\packages\\": {},
+    "C:\\Users\\HUNG7510\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\HUY HUNG\\Desktop\\NCKH-QLDA\\project-loi-dll\\NCKH-QLDA\\src\\NCKH-QLDA-Core\\WebSite.Core.API\\WebSite.Core.API.csproj",
+      "projectUniqueName": "C:\\Users\\HUNG7510\\Desktop\\NCKH-QLDA\\project-loi-dll\\NCKH-QLDA\\src\\NCKH-QLDA-Core\\WebSite.Core.API\\WebSite.Core.API.csproj",
       "projectName": "WebSite.Core.API",
-      "projectPath": "C:\\Users\\HUY HUNG\\Desktop\\NCKH-QLDA\\project-loi-dll\\NCKH-QLDA\\src\\NCKH-QLDA-Core\\WebSite.Core.API\\WebSite.Core.API.csproj",
-      "packagesPath": "C:\\Users\\HUY HUNG\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\HUY HUNG\\Desktop\\NCKH-QLDA\\project-loi-dll\\NCKH-QLDA\\src\\NCKH-QLDA-Core\\WebSite.Core.API\\obj\\",
+      "projectPath": "C:\\Users\\HUNG7510\\Desktop\\NCKH-QLDA\\project-loi-dll\\NCKH-QLDA\\src\\NCKH-QLDA-Core\\WebSite.Core.API\\WebSite.Core.API.csproj",
+      "packagesPath": "C:\\Users\\HUNG7510\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\HUNG7510\\Desktop\\NCKH-QLDA\\project-loi-dll\\NCKH-QLDA\\src\\NCKH-QLDA-Core\\WebSite.Core.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\HUY HUNG\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\HUNG7510\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -11160,20 +11189,21 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "D:\\DevExpres20.1\\Components\\System\\Components\\Packages": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\HUY HUNG\\Desktop\\NCKH-QLDA\\project-loi-dll\\NCKH-QLDA\\src\\NCKH-QLDA-Core\\NCKH.Infrastruture.Binding\\NCKH.Infrastruture.Binding.csproj": {
-              "projectPath": "C:\\Users\\HUY HUNG\\Desktop\\NCKH-QLDA\\project-loi-dll\\NCKH-QLDA\\src\\NCKH-QLDA-Core\\NCKH.Infrastruture.Binding\\NCKH.Infrastruture.Binding.csproj"
+            "C:\\Users\\HUNG7510\\Desktop\\NCKH-QLDA\\project-loi-dll\\NCKH-QLDA\\src\\NCKH-QLDA-Core\\NCKH.Infrastruture.Binding\\NCKH.Infrastruture.Binding.csproj": {
+              "projectPath": "C:\\Users\\HUNG7510\\Desktop\\NCKH-QLDA\\project-loi-dll\\NCKH-QLDA\\src\\NCKH-QLDA-Core\\NCKH.Infrastruture.Binding\\NCKH.Infrastruture.Binding.csproj"
             },
-            "C:\\Users\\HUY HUNG\\Desktop\\NCKH-QLDA\\project-loi-dll\\NCKH-QLDA\\src\\NCKH-QLDA-Core\\WebSite.Core.Domain\\WebSite.Core.Domain.csproj": {
-              "projectPath": "C:\\Users\\HUY HUNG\\Desktop\\NCKH-QLDA\\project-loi-dll\\NCKH-QLDA\\src\\NCKH-QLDA-Core\\WebSite.Core.Domain\\WebSite.Core.Domain.csproj"
+            "C:\\Users\\HUNG7510\\Desktop\\NCKH-QLDA\\project-loi-dll\\NCKH-QLDA\\src\\NCKH-QLDA-Core\\WebSite.Core.Domain\\WebSite.Core.Domain.csproj": {
+              "projectPath": "C:\\Users\\HUNG7510\\Desktop\\NCKH-QLDA\\project-loi-dll\\NCKH-QLDA\\src\\NCKH-QLDA-Core\\WebSite.Core.Domain\\WebSite.Core.Domain.csproj"
             },
-            "C:\\Users\\HUY HUNG\\Desktop\\NCKH-QLDA\\project-loi-dll\\NCKH-QLDA\\src\\NCKH-QLDA-Core\\WebSite.Core.Infrastructure\\WebSite.Core.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\HUY HUNG\\Desktop\\NCKH-QLDA\\project-loi-dll\\NCKH-QLDA\\src\\NCKH-QLDA-Core\\WebSite.Core.Infrastructure\\WebSite.Core.Infrastructure.csproj"
+            "C:\\Users\\HUNG7510\\Desktop\\NCKH-QLDA\\project-loi-dll\\NCKH-QLDA\\src\\NCKH-QLDA-Core\\WebSite.Core.Infrastructure\\WebSite.Core.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\HUNG7510\\Desktop\\NCKH-QLDA\\project-loi-dll\\NCKH-QLDA\\src\\NCKH-QLDA-Core\\WebSite.Core.Infrastructure\\WebSite.Core.Infrastructure.csproj"
             }
           }
         }
@@ -11215,6 +11245,10 @@
           "Microsoft.AspNetCore.Server.IISIntegration": {
             "target": "Package",
             "version": "[2.2.1, )"
+          },
+          "NSwag.Annotations": {
+            "target": "Package",
+            "version": "[13.11.1, )"
           },
           "Serilog.AspNetCore": {
             "target": "Package",

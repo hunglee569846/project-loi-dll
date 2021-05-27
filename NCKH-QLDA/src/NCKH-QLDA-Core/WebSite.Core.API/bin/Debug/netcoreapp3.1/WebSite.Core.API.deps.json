@@ -39,6 +39,7 @@
           "Microsoft.AspNetCore.Server.IIS": "2.2.6",
           "Microsoft.AspNetCore.Server.IISIntegration": "2.2.1",
           "NCKH.Infrastruture.Binding": "1.0.0",
+          "NSwag.Annotations": "13.11.1",
           "Serilog.AspNetCore": "3.4.0",
           "Serilog.Settings.Configuration": "3.1.0",
           "Serilog.Sinks.MSSqlServer": "5.5.1",
@@ -1355,6 +1356,17 @@
         },
         "compile": {
           "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {}
+        }
+      },
+      "NSwag.Annotations/13.11.1": {
+        "runtime": {
+          "lib/netstandard2.0/NSwag.Annotations.dll": {
+            "assemblyVersion": "13.11.1.0",
+            "fileVersion": "13.11.1.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/NSwag.Annotations.dll": {}
         }
       },
       "Rijndael256/3.2.0": {
@@ -5145,6 +5157,13 @@
       "sha512": "sha512-QYFyxhaABwmq3p/21VrZNYvCg3DaEoN/wUuw5nmfAf0X3HLjgupwhkEWdgfb9nvGAUIv3osmZoD3kKl4jxEmYQ==",
       "path": "newtonsoft.json.bson/1.0.2",
       "hashPath": "newtonsoft.json.bson.1.0.2.nupkg.sha512"
+    },
+    "NSwag.Annotations/13.11.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-S+rKhnZWNfR2v7jdsqOhYhRv4Ae0+vZ8oBL6dBILndGP4CrVH64TggnLzzdKk2BOvmjCLUJCURNc+lANrqAPtA==",
+      "path": "nswag.annotations/13.11.1",
+      "hashPath": "nswag.annotations.13.11.1.nupkg.sha512"
     },
     "Rijndael256/3.2.0": {
       "type": "package",
