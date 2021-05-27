@@ -1,6 +1,8 @@
 ﻿using Core.Domain.IServices;
 using Core.Domain.ModelMeta;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using NCKH.Infrastruture.Binding;
 using Swashbuckle.AspNetCore.Annotations;
 using System;
 using System.Collections.Generic;
@@ -9,11 +11,12 @@ using System.Threading.Tasks;
 
 namespace Core.API.Controllers
 {
+    [Authorize]
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     [SwaggerTag("Insert, Update, Delete, GetAll")]
-    public class UserAccountController : ControllerBase
+    public class UserAccountController : CoreApiControllerBase
     {
         private readonly IUserAccountService _userAccountService;
         public UserAccountController(IUserAccountService userAccountService)
@@ -25,7 +28,7 @@ namespace Core.API.Controllers
         [AcceptVerbs("POST"), Route("acount")]
         public async Task<IActionResult> InsertAsync([FromBody]UserAccountInsertMeta userAccountMeta)
         {
-            var result = await _userAccountService.InsertAsync(userAccountMeta);
+            var result = await _userAccountService.InsertAsync(userAccountMeta,CurrentUser.MaGiangVien,CurrentUser.FullName);
             if (result.Code <= 0)
             {
                 return BadRequest(result);

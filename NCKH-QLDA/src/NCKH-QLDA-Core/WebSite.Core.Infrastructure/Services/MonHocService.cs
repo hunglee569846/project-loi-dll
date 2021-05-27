@@ -33,20 +33,24 @@ namespace WebSite.Core.Infrastructure.Services
             return await _imonhocRepository.SelectAllByIdHocKy(idhocky);
         }
         //Khoi tao mon hoc tien quyet
-        public async Task<ActionResultResponese<string>> InsertAsync(string mamonhoc,string tenmonhoc, string idhocky,TypeDataApprover typeApprover)
+        public async Task<ActionResultResponese<string>> InsertAsync(MonHocMeta monHocMeta, string idhocky,TypeDataApprover typeApprover, string creatorUserId, string creatorFullName)
         {
             var idmonhoc = Guid.NewGuid().ToString();
-            var checExits = await _imonhocRepository.CheckExits(idmonhoc, mamonhoc);
+            var checExits = await _imonhocRepository.CheckExits(idmonhoc, monHocMeta.MaMonHoc);
             if (checExits)
                 return new ActionResultResponese<string>(-3, "Mã đã tồn tại.", "Môn học");
             var monhoc = new MonHoc()
             {
                 IdMonHoc = idmonhoc,
-                MaMonHoc = mamonhoc,
-                IdHocKy = idhocky,
-                TenMonHoc = tenmonhoc,
+                MaMonHoc = monHocMeta.MaMonHoc?.Trim(),
+                IdHocKy = idhocky?.Trim(),
+                TenMonHoc = monHocMeta.TenMonHoc?.Trim(),
                 NgayTao = DateTime.Now,
-                TypeApprover = typeApprover
+                TypeApprover = typeApprover,
+                CreatorUserId = creatorUserId?.Trim(),
+                CreatorFullName = creatorFullName?.Trim(),
+                IdMonTienQuyet = monHocMeta.IdMonTienQuyet?.Trim(),
+                NameMonTienQuyet = monHocMeta.NameMonTienQuyet?.Trim()
             };
             if (monhoc == null)
                 return new ActionResultResponese<string>(-4, "Dữ liệu rỗng", "Môn học");
@@ -57,7 +61,7 @@ namespace WebSite.Core.Infrastructure.Services
             
         }
 
-        public async Task<ActionResultResponese<string>> UpdateAsync(MonHocMeta monhocmeta,string idmonhoc,TypeDataApprover typeApprover)
+        public async Task<ActionResultResponese<string>> UpdateAsync(MonHocMeta monhocmeta, string idmonhoc,string idhocky, TypeDataApprover typeApprover, string lastUpdateUserId, string lastUpdateFullName)
         {
             
             var checExits = await _imonhocRepository.CheckExitsIsActvive(idmonhoc);
@@ -67,9 +71,14 @@ namespace WebSite.Core.Infrastructure.Services
             {
                 IdMonHoc = idmonhoc,
                 MaMonHoc = monhocmeta.MaMonHoc?.Trim(),
-                IdHocKy = monhocmeta.IdHocKy?.Trim(),
+                IdHocKy = idhocky?.Trim(),
                 TenMonHoc = monhocmeta.TenMonHoc?.Trim(),
+                IdMonTienQuyet = monhocmeta.IdMonTienQuyet?.Trim(),
+                NameMonTienQuyet = monhocmeta.NameMonTienQuyet?.Trim(),
                 TypeApprover = typeApprover,
+                LastUpdateUserId = lastUpdateUserId,
+                LastUpdateFullName = lastUpdateFullName,
+                NgaySua = DateTime.Now
             };
             if (monhoc == null)
                 return new ActionResultResponese<string>(-6, "Dữ liệu rỗng", "Môn học");

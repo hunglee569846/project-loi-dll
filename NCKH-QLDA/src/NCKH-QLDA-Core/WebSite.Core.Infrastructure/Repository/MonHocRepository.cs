@@ -65,7 +65,12 @@ namespace WebSite.Core.Infrastructure.Repository
                     param.Add("@TenMonHoc", monhoc.TenMonHoc);
                     param.Add("@NgayTao", monhoc.NgayTao);
                     param.Add("@IsActive", monhoc.IsActive);
-                    param.Add("@TypeApprove", monhoc.IsDelete);
+                    param.Add("@IsDelete", monhoc.IsDelete);
+                    param.Add("@TypeApprove", monhoc.TypeApprover);
+                    param.Add("@CreatorUserId", monhoc.CreatorUserId);
+                    param.Add("@CreatorFullName", monhoc.CreatorUserId);
+                    param.Add("@IdMonTienQuyet", monhoc.IdMonTienQuyet);
+                    param.Add("@NameMonTienQuyet", monhoc.NameMonTienQuyet);
                     rowAffect = await conn.ExecuteAsync("[dbo].[spMonHoc_InsertAsync]", param, commandType: CommandType.StoredProcedure);
                     return rowAffect;
                 }

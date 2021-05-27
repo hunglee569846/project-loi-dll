@@ -17,7 +17,7 @@ namespace Core.Domain.ModelMeta
         public string IdKhoa { get; set; }
         public string NameKhoa { get; set; }
         public bool IsActive { get; set; }
-        public string CreatorId { get; set; }
-        public string CreatorFullName { get; set; }
+       // public string CreatorId { get; set; }
+        //public string CreatorFullName { get; set; }
     }
 }

@@ -22,7 +22,7 @@ namespace Core.Infrastructure.Services
             _configuration = configuration;
         }
 
-        public async Task<ActionResultResponese<string>> InsertAsync(UserAccountInsertMeta userAccountMeta)
+        public async Task<ActionResultResponese<string>> InsertAsync(UserAccountInsertMeta userAccountMeta, string userId, string fullName)
         {
             //var result1 = await _userAccountRepository.GetInfoByUserNameAsync("276288cd-a4bb-42b8-a2ab-921d40gfhfjh67788798");
             byte[] passwordSalt = Generate.GenerateRandomBytes(Generate.PasswordSaltLength);
@@ -43,12 +43,12 @@ namespace Core.Infrastructure.Services
                 IsActive = userAccountMeta.IsActive,
                 Type = userAccountMeta.Type,
                 CreateTime = DateTime.Now,
-                CreatorId = userAccountMeta.CreatorId,
-                CreatorFullName = userAccountMeta.CreatorFullName
+                CreatorId = userId?.Trim(),
+                CreatorFullName = fullName?.Trim()
             });
 
             if (result == -1)
-                return new ActionResultResponese<string>(result, ErrorMessage.SomethingWentWrong ,"Account");
+                return new ActionResultResponese<string>(result, "Đã sảy ra lỗi. Vui lòng liên hệ quản trị viên." ,"Account");
 
             return new ActionResultResponese<string>(result,"Thêm mới tài khoản "+ userAccountMeta.UserName + " thành công.", string.Empty);
         }
@@ -58,7 +58,7 @@ namespace Core.Infrastructure.Services
         //public async Task<ActionResultResponese> ForceDeleteAsync(string tenantId, string id) { }
         public async Task<ActionResultResponese> ResetLockoutAsync(string idKhoa, string lastUpdateUserId, string lastUpdateFullName, string lastUpdateAvatar, string userName, UserType type)
         {
-            UserAccount info = await _userAccountRepository.GetInfoByUserNameAsync(userName, userName, type);
+            UserAccount info = await _userAccountRepository.GetInfoByUserNameAsync(userName, userName);
             if (info == null)
                 return new ActionResultResponese(-1, "Account does not exist or is not activated.");
 
@@ -77,7 +77,7 @@ namespace Core.Infrastructure.Services
         //public async Task<ActionResultResponese> UpdateIsActiveAsync(string tenantId, string lastUpdateUserId, string lastUpdateFullName, string lastUpdateAvatar, string userName, UserType type, bool isActive) {  }
         public int UpdateAccessFailCount(string idAccount, string userName, UserType type, int failCount, bool lockoutOnFailure = false)
         {
-            UserAccount info = Task.Run(() => _userAccountRepository.GetInfoByUserNameAsync(idAccount, userName, type)).Result;
+            UserAccount info = Task.Run(() => _userAccountRepository.GetInfoByUserNameAsync(idAccount, userName)).Result;
             if (info == null)
             {
                 return -1;

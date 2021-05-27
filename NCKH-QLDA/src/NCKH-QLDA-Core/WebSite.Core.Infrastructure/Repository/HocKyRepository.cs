@@ -65,10 +65,6 @@ namespace WebSite.Core.Infrastructure.Repository
                     {
                         param.Add("@NgayTao", hocky.NgayTao);
                     }
-                    if (hocky.NgayTao != null && hocky.NgayTao != DateTime.MinValue)
-                    {
-                        param.Add("@NgayXoa", hocky.NgayXoa);
-                    }
                     param.Add("@IsActive", hocky.IsActive);
                     param.Add("@IsDelete", hocky.IsDelete);
                     param.Add("@CreatetorId", hocky.CreatetorId);
@@ -84,7 +80,7 @@ namespace WebSite.Core.Infrastructure.Repository
             }
         }
         
-        public async Task<int> UpdateAsync(string idhocky, string mahocky,string tenhocky)
+        public async Task<int> UpdateAsync(string idhocky, string mahocky,string tenhocky, DateTime? ngaysua,string userId, string fullName)
         {
             try
             {
@@ -97,6 +93,9 @@ namespace WebSite.Core.Infrastructure.Repository
                     param.Add("@IdHocKy", idhocky);
                     param.Add("@MaHocKy", mahocky);
                     param.Add("@TenHocKy", tenhocky);
+                    param.Add("@NgaySua", ngaysua);
+                    param.Add("@LastUpdateUserId", userId);
+                    param.Add("@LastUpdateFullName", fullName);
                     TotalRow = await conn.ExecuteAsync("[dbo].[spHocKy_UpdateAsync]", param, commandType: CommandType.StoredProcedure);
                     return TotalRow;
                 }

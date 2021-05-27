@@ -62,7 +62,7 @@ namespace WebSite.Core.API.Controllers
         [SwaggerOperation(Summary = "UpdateAsyncHocKy", Description = "Requires login verification!", OperationId = "UpdateAsyncHocKy", Tags = new[] { "Hocky" })]
         public async Task<IActionResult> UpdateAsync(string idHocKy,string mahocky,string tenhocky) //[FromBody]HocKyMeta hockymeta
         {
-            var result = await _ihockyService.UpDateAsync(idHocKy,mahocky, tenhocky);
+            var result = await _ihockyService.UpDateAsync(idHocKy,mahocky, tenhocky,CurrentUser.MaGiangVien,CurrentUser.FullName);
             if (result.Code <= 0)
             {
                 // _logger.LogError("Insert Hockys controller code: " + result.Code + " .Message: " + result.Message);
