@@ -10,6 +10,10 @@ namespace WebSite.Core.Domain.ViewModel
         public string IdMonHoc { get; set; }
         public string MaMonHoc { get; set; }
         public string TenMonHoc { get; set; }
+        public string IdMonTienQuyet { get; set; }
+        public string NameMonTienQuyet { get; set; }
+        public string CreatorUserId { get; set; }
+        public string CreatorFullName { get; set; }
         public TypeDataApprover TypeApprover { get; set; }
         public DateTime? NgayTao { get; set; }
     }

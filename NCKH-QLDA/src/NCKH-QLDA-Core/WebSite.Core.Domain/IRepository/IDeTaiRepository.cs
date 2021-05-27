@@ -15,6 +15,7 @@ namespace WebSite.Core.Domain.IRepository
         Task<int> UpdateAsync(DeTai detai);
         Task<int> UpdateApproveAsync(string iddetai,bool isApprove);
         Task<int> DeleteAsync(string iddetai);
+        Task<bool> CheckIsDat(string idmonhoc,string maSinhVien); //kiem tra ban ghi ton tai
         Task<bool> CheckExits(string iddetai); //kiem tra ban ghi ton tai
         Task<bool> CheckApprove(string iddetai); //kiem tra de tai duoc duyet
         Task<bool> CheckMaDeTai(string madetai); //kiem tra ton tai ma de tai

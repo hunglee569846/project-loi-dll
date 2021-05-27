@@ -121,7 +121,7 @@ namespace Core.Infrastructure.Repository
                         await con.OpenAsync();
 
                     var sql = @"
-					SELECT IIF (EXISTS (SELECT 1 FROM UserAccounts WHERE IdAccount = @Id AND IdAccount = @Id AND IsDelete = 0  AND IsActive = 1), 1, 0)";
+					SELECT IIF (EXISTS (SELECT 1 FROM UserAccounts WHERE IdAccount = @Id AND Type = 1 AND IsDelete = 0  AND IsActive = 1), 1, 0)";
 
                     var result = await con.ExecuteScalarAsync<bool>(sql, new { IdAccount = id });
                     return result;
@@ -133,7 +133,7 @@ namespace Core.Infrastructure.Repository
                 return false;
             }
         }
-        public async Task<UserAccount> GetInfoByUserNameAsync (string idAccount,string userName,UserType type)// string userName, UserType type)
+        public async Task<UserAccount> GetInfoByUserNameAsync (string idAccount,string userName)// string userName, UserType type)
         {
             try
             {
@@ -145,7 +145,7 @@ namespace Core.Infrastructure.Repository
                     DynamicParameters param = new DynamicParameters();
                     param.Add("@UserName", userName);
                     param.Add("@IdAccount", idAccount);
-                    param.Add("@Type", type);
+                  //  param.Add("@Type", type);
                     return await con.QuerySingleOrDefaultAsync<UserAccount>("[dbo].[spUserAccount_GetInfoByUserName]", param, commandType: CommandType.StoredProcedure);
                 }
             }

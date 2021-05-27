@@ -41,7 +41,6 @@ namespace Au.Authentication.Validators
         public Task ValidateAsync(ResourceOwnerPasswordValidationContext context)
         {
             //domain tham so đầu vào
-            var password = context.Request.Raw.Get("password");
            var userName = context.Request.Raw.Get("userName");
             if (string.IsNullOrEmpty(userName))
             {
@@ -55,7 +54,6 @@ namespace Au.Authentication.Validators
             bool isExist = _cache.TryGetValue(cacheKey, out idAccount);
             if (!isExist)
             {
-                //string domains = "domain";
                 //trar ve domain đúng
                 idAccount = Task.Run(() => _userAccountRepository.GetidKhoaByDomainAsync(userName)).Result;
                 var cacheEntryOptions = new MemoryCacheEntryOptions()
@@ -66,23 +64,23 @@ namespace Au.Authentication.Validators
             if (string.IsNullOrEmpty(idAccount))
             {
                 // _logger.LogError("tenant_does_not_exists {0}", idKhoa);
-                context.Result = new GrantValidationResult(TokenRequestErrors.InvalidRequest, "Khoa_does_not_exists");
+                context.Result = new GrantValidationResult(TokenRequestErrors.InvalidRequest, "Tài khoản không tồn tại.");
                 return Task.CompletedTask;
             }
 
-            var type = context.Request.Raw.Get("type");
-            if (string.IsNullOrEmpty(type))
+            var password = context.Request.Raw.Get("password");
+            if (string.IsNullOrEmpty(password))
             {
                 // _logger.LogError("type_does_not_exists {0}", type);
-                context.Result = new GrantValidationResult(TokenRequestErrors.InvalidRequest, "type_does_not_exists");
+                context.Result = new GrantValidationResult(TokenRequestErrors.InvalidRequest, "Password không để trống.");
                 return Task.CompletedTask;
             }
             // thông tin user
-            var userInfo = Task.Run(() => _userAccountRepository.GetInfoByUserNameAsync(idAccount,context.UserName, (UserType)Enum.Parse(typeof(UserType), type))).Result;
+            var userInfo = Task.Run(() => _userAccountRepository.GetInfoByUserNameAsync(idAccount,context.UserName)).Result;
             if (userInfo == null)
             {
                 // _logger.LogError("account_does_not_exists");
-                context.Result = new GrantValidationResult(TokenRequestErrors.InvalidGrant, "account_does_not_exists");
+                context.Result = new GrantValidationResult(TokenRequestErrors.InvalidGrant, "Tài khoản không tồn tại.");
                 return Task.CompletedTask;
             }
 

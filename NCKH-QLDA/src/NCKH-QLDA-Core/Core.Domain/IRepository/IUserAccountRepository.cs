@@ -34,7 +34,7 @@ namespace Core.Domain.IRepository
 
         //Task<UserAccount> GetAccountInfoByUserNameAsync(string tenantId, string userName, UserType type);
 
-        Task<UserAccount> GetInfoByUserNameAsync(string idAccount,string userName,UserType type);//(string idKhoa, string userName, UserType type);
+        Task<UserAccount> GetInfoByUserNameAsync(string idAccount,string userName);//(string idKhoa, string userName, UserType type);
 
         //Task<bool> CheckUserNameExistsAsync(string id, string tenantId, string userName, UserType type);
 
