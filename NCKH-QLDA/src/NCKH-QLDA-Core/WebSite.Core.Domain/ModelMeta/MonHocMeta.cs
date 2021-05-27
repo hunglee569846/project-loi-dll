@@ -9,6 +9,7 @@ namespace WebSite.Core.Domain.ModelMeta
     {
         public string MaMonHoc { get; set; }
         public string TenMonHoc { get; set; }
-        public string IdHocKy { get; set; }
+        public string IdMonTienQuyet { get; set; }
+        public string NameMonTienQuyet { get; set; }
     }
 }

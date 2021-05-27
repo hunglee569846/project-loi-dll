@@ -47,7 +47,7 @@ namespace WebSite.Core.Infrastructure.Services
 
         }
         
-        public async Task<ActionResultResponese<string>> UpDateAsync(string idhocky, string mahocky, string tenhocky)
+        public async Task<ActionResultResponese<string>> UpDateAsync(string idhocky, string mahocky, string tenhocky, string userId, string fullName)
         {
             var checExist = await _ihocKyRepository.CheckExisIsActivetAsync(idhocky);
             if (!checExist)
@@ -59,7 +59,8 @@ namespace WebSite.Core.Infrastructure.Services
             //};
             //if (hockynew == null)
             //    return new ActionResultResponese<string>(-3, "Dữ liệu rỗng", "Học Kỳ");
-            var result = await _ihocKyRepository.UpdateAsync(idhocky, mahocky, tenhocky);
+            var ngaysua = DateTime.Now;
+            var result = await _ihocKyRepository.UpdateAsync(idhocky, mahocky, tenhocky, ngaysua, userId, fullName);
             if (result <= 0)
                 return new ActionResultResponese<string>(result, "Sửa chữa thất bại.", "Học kỳ");
             return new ActionResultResponese<string>(result, "Sửa chữa thành công.", "Học kỳ");
