@@ -22,6 +22,8 @@ using IdentityModel.AspNetCore.OAuth2Introspection;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using Autofac;
 using Core.Infrastructure.AutofacModules;
+using Microsoft.IdentityModel.Logging;
+using NCKH.Infrastruture.Binding.Middleware;
 
 namespace Core.API
 {
@@ -164,10 +166,21 @@ namespace Core.API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
+            if (env.EnvironmentName == Environments.Development)
             {
+                IdentityModelEventSource.ShowPII = true;
+                app.UseStatusCodePages();
                 app.UseDeveloperExceptionPage();
+                app.UseExceptionHandler("/error-develop");
             }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+                app.UseHttpsRedirection();
+                app.UseHsts();
+            }
+
+            app.GHMRequestLocalization();
 
             app.UseHttpsRedirection();
             #region Allow Origins
@@ -183,6 +196,8 @@ namespace Core.API
             #endregion
 
             app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseAuthorization();
 
@@ -205,6 +220,8 @@ namespace Core.API
                 options.ShowExtensions();
                 options.DocExpansion(DocExpansion.None);
             });
+            app.Map(pathMatch: "/Error", MiddlewareExtension.GHMError);
+            app.GHMWelcome();
         }
     }
 }

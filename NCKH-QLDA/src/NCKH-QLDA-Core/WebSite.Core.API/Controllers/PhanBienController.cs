@@ -3,9 +3,11 @@ using System.Threading.Tasks;
 using WebSite.Core.Domain.IServices;
 using WebSite.Core.Domain.ModelMeta;
 using Swashbuckle.AspNetCore.Annotations;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebSite.Core.API.Controllers
 {
+    [Authorize]
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]

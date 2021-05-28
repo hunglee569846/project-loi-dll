@@ -13,7 +13,7 @@ namespace Core.Domain.IServices
 {
    public interface IUserAccountService
     {
-        Task<ActionResultResponese<string>> InsertAsync(UserAccountInsertMeta userAccountMeta,string userId,string fullName);
+        Task<ActionResultResponese<string>> InsertAsync(UserAccountInsertMeta userAccountMeta,string userId,string fullName,UserType permission,string userName);
         //Task<SearchResult<UserAccountViewModel>> SearchAsync(string tenantId, UserType type, bool? isActive, string keyword, int page, int pageSize);
         
         //Task<ActionResultResponese> DeleteAsync(string tenantId, string id);

@@ -342,9 +342,15 @@ C:\Users\HUNG7510\Desktop\NCKH-QLDA\project-loi-dll\NCKH-QLDA\src\NCKH-QLDA-Core
 C:\Users\HUNG7510\Desktop\NCKH-QLDA\project-loi-dll\NCKH-QLDA\src\NCKH-QLDA-Core\Core.API\obj\Debug\netcoreapp3.1\Core.API.dll
 C:\Users\HUNG7510\Desktop\NCKH-QLDA\project-loi-dll\NCKH-QLDA\src\NCKH-QLDA-Core\Core.API\obj\Debug\netcoreapp3.1\Core.API.pdb
 C:\Users\HUNG7510\Desktop\NCKH-QLDA\project-loi-dll\NCKH-QLDA\src\NCKH-QLDA-Core\Core.API\obj\Debug\netcoreapp3.1\Core.API.genruntimeconfig.cache
+<<<<<<< HEAD
 C:\Users\HUY HUNG\Desktop\Project\project-loi-dll\NCKH-QLDA\src\NCKH-QLDA-Core\Core.API\bin\Debug\netcoreapp3.1\web.config
 C:\Users\HUY HUNG\Desktop\Project\project-loi-dll\NCKH-QLDA\src\NCKH-QLDA-Core\Core.API\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\HUY HUNG\Desktop\Project\project-loi-dll\NCKH-QLDA\src\NCKH-QLDA-Core\Core.API\bin\Debug\netcoreapp3.1\appsettings.json
+=======
+C:\Users\HUY HUNG\Desktop\Project\project-loi-dll\NCKH-QLDA\src\NCKH-QLDA-Core\Core.API\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\HUY HUNG\Desktop\Project\project-loi-dll\NCKH-QLDA\src\NCKH-QLDA-Core\Core.API\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\HUY HUNG\Desktop\Project\project-loi-dll\NCKH-QLDA\src\NCKH-QLDA-Core\Core.API\bin\Debug\netcoreapp3.1\web.config
+>>>>>>> hungpc
 C:\Users\HUY HUNG\Desktop\Project\project-loi-dll\NCKH-QLDA\src\NCKH-QLDA-Core\Core.API\bin\Debug\netcoreapp3.1\Core.API.exe
 C:\Users\HUY HUNG\Desktop\Project\project-loi-dll\NCKH-QLDA\src\NCKH-QLDA-Core\Core.API\bin\Debug\netcoreapp3.1\Core.API.deps.json
 C:\Users\HUY HUNG\Desktop\Project\project-loi-dll\NCKH-QLDA\src\NCKH-QLDA-Core\Core.API\bin\Debug\netcoreapp3.1\Core.API.runtimeconfig.json
