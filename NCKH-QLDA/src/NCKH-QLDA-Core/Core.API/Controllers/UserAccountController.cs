@@ -28,7 +28,7 @@ namespace Core.API.Controllers
         [AcceptVerbs("POST"), Route("acount")]
         public async Task<IActionResult> InsertAsync([FromBody]UserAccountInsertMeta userAccountMeta)
         {
-            var result = await _userAccountService.InsertAsync(userAccountMeta,CurrentUser.MaGiangVien,CurrentUser.FullName);
+            var result = await _userAccountService.InsertAsync(userAccountMeta,CurrentUser.MaGiangVien,CurrentUser.FullName,CurrentUser.Type);
             if (result.Code <= 0)
             {
                 return BadRequest(result);

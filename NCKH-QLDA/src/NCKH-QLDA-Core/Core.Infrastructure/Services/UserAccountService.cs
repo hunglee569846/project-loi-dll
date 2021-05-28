@@ -22,9 +22,10 @@ namespace Core.Infrastructure.Services
             _configuration = configuration;
         }
 
-        public async Task<ActionResultResponese<string>> InsertAsync(UserAccountInsertMeta userAccountMeta, string userId, string fullName)
+        public async Task<ActionResultResponese<string>> InsertAsync(UserAccountInsertMeta userAccountMeta, string userId, string fullName, UserType permission,string userName)
         {
-            //var result1 = await _userAccountRepository.GetInfoByUserNameAsync("276288cd-a4bb-42b8-a2ab-921d40gfhfjh67788798");
+            if(permission == 0) 
+                return new ActionResultResponese<string>(-3, "Tài khoản "+ userName +" không có quyền tạo tài khoản.", "Account");
             byte[] passwordSalt = Generate.GenerateRandomBytes(Generate.PasswordSaltLength);
             byte[] passwordHash = Generate.GetInputPasswordHash(userAccountMeta.Password, passwordSalt);
 
