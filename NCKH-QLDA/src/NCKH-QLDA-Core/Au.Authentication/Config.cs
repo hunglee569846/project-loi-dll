@@ -31,19 +31,19 @@ namespace Au.Authentication
                         "GHM_NailSpa"
                     },
                     UserClaims = { "role", "admin", "user"}
-                },
-                new ApiResource("GHM_Core_Api", "GHM Core API managerment resources.")
-                {
-                    ApiSecrets = new List<Secret>
-                    {
-                        new Secret("GHMSOFT".Sha256())
-                    },
-                    Scopes = new List<string>
-                    {
-                        "GHM_Core"
-                    },
-                    UserClaims = { "role", "admin", "user"}
-                },
+                }
+                //new ApiResource("GHM_Core_Api", "GHM Core API managerment resources.")
+                //{
+                //    ApiSecrets = new List<Secret>
+                //    {
+                //        new Secret("GHMSOFT".Sha256())
+                //    },
+                //    Scopes = new List<string>
+                //    {
+                //        "GHM_Core"
+                //    },
+                //    UserClaims = { "role", "admin", "user"}
+                //},
                 //new ApiResource("GHM_Api_Gateway", "GHM API Gateway managerment resources.")
                 //{
                 //    ApiSecrets = new List<Secret>
@@ -126,7 +126,7 @@ namespace Au.Authentication
             return new List<ApiScope>
             {
                 new ApiScope("GHM_NailSpa", "GHM NailSpa API managerment resources.",new List<string> { "role", "admin", "user"}),
-                new ApiScope("GHM_Core", "GHM Core API managerment resources.",new List<string> { "role", "admin", "user"}),
+        //        new ApiScope("GHM_Core", "GHM Core API managerment resources.",new List<string> { "role", "admin", "user"}),
         //        new ApiScope("GHM_Gateway", "GHM API Gateway managerment resources.",new List<string> { "role", "admin", "user"}),
         //        new ApiScope("GHM_Notification", "GHM Notification management resources",new List<string> { "role", "admin", "user"}),
         //        new ApiScope("GHM_FileManagement", "GHM File management resources",new List<string> { "role", "admin", "user"}),
