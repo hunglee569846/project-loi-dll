@@ -10,8 +10,8 @@ namespace WebSite.Core.Domain.IServices
     public interface IMonHocService
     {
         Task<SearchResult<MonHocSearchViewModel>> GetAllAsyncByIdHocKy(string idhocky);
-        Task<ActionResultResponese<string>> InsertAsync(MonHocMeta monHocMeta, string idhocky, TypeDataApprover typeApprover, string creatorUserId, string creatorFullName);
-        Task<ActionResultResponese<string>> UpdateAsync(MonHocMeta monhocmeta, string idmonhoc, string idhocky, TypeDataApprover typeApprover, string lastUpdateUserId, string lastUpdateFullName);
+        Task<ActionResultResponese<string>> InsertAsync(MonHocMeta monHocMeta, string idhocky, TypeDataApprover typeApprover, string creatorUserId, string creatorFullName,string mamonhoc,string tenmonhoc);
+        Task<ActionResultResponese<string>> UpdateAsync(MonHocMeta monhocmeta, string idmonhoc, string idhocky, TypeDataApprover typeApprover, string lastUpdateUserId, string lastUpdateFullName, string mamonhoc, string tenmonhoc);
         
     }
 }

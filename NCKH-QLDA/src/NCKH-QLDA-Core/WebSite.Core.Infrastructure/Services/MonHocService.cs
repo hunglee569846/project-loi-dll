@@ -33,18 +33,18 @@ namespace WebSite.Core.Infrastructure.Services
             return await _imonhocRepository.SelectAllByIdHocKy(idhocky);
         }
         //Khoi tao mon hoc tien quyet
-        public async Task<ActionResultResponese<string>> InsertAsync(MonHocMeta monHocMeta, string idhocky,TypeDataApprover typeApprover, string creatorUserId, string creatorFullName)
+        public async Task<ActionResultResponese<string>> InsertAsync(MonHocMeta monHocMeta, string idhocky,TypeDataApprover typeApprover, string creatorUserId, string creatorFullName,string mamonhoc,string tenmonhoc)
         {
             var idmonhoc = Guid.NewGuid().ToString();
-            var checExits = await _imonhocRepository.CheckExits(idmonhoc, monHocMeta.MaMonHoc);
+            var checExits = await _imonhocRepository.CheckExits(idmonhoc, mamonhoc);
             if (checExits)
                 return new ActionResultResponese<string>(-3, "Mã đã tồn tại.", "Môn học");
             var monhoc = new MonHoc()
             {
                 IdMonHoc = idmonhoc,
-                MaMonHoc = monHocMeta.MaMonHoc?.Trim(),
+                MaMonHoc = mamonhoc?.Trim(),
                 IdHocKy = idhocky?.Trim(),
-                TenMonHoc = monHocMeta.TenMonHoc?.Trim(),
+                TenMonHoc = tenmonhoc?.Trim(),
                 NgayTao = DateTime.Now,
                 TypeApprover = typeApprover,
                 CreatorUserId = creatorUserId?.Trim(),
@@ -61,7 +61,7 @@ namespace WebSite.Core.Infrastructure.Services
             
         }
 
-        public async Task<ActionResultResponese<string>> UpdateAsync(MonHocMeta monhocmeta, string idmonhoc,string idhocky, TypeDataApprover typeApprover, string lastUpdateUserId, string lastUpdateFullName)
+        public async Task<ActionResultResponese<string>> UpdateAsync(MonHocMeta monhocmeta, string idmonhoc,string idhocky, TypeDataApprover typeApprover, string lastUpdateUserId, string lastUpdateFullName, string mamonhoc, string tenmonhoc)
         {
             
             var checExits = await _imonhocRepository.CheckExitsIsActvive(idmonhoc);
@@ -70,9 +70,9 @@ namespace WebSite.Core.Infrastructure.Services
             var monhoc = new MonHoc()
             {
                 IdMonHoc = idmonhoc,
-                MaMonHoc = monhocmeta.MaMonHoc?.Trim(),
+                MaMonHoc = mamonhoc?.Trim(),
                 IdHocKy = idhocky?.Trim(),
-                TenMonHoc = monhocmeta.TenMonHoc?.Trim(),
+                TenMonHoc = tenmonhoc?.Trim(),
                 IdMonTienQuyet = monhocmeta.IdMonTienQuyet?.Trim(),
                 NameMonTienQuyet = monhocmeta.NameMonTienQuyet?.Trim(),
                 TypeApprover = typeApprover,

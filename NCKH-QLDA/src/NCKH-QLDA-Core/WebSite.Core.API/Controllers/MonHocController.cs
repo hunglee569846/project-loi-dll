@@ -48,9 +48,9 @@ namespace WebSite.Core.API.Controllers
 
         [SwaggerOperation(Summary = "InsertAsyncMonHoc", Description = "TypeApprover: 0 - GangVien,1 - HoiDong,2 - PhanBienvsPhanBien" , OperationId = "InsertAsyncMonHoc", Tags = new[] { "MonHoc" })]
         [AcceptVerbs("POST"), Route("{mamonhoc}/{tenmonhoc}/{idhocky}/{typeApprover}")]
-        public async Task<IActionResult> InsertAsync([FromBody]MonHocMeta monHocMeta, string idhocky, TypeDataApprover typeApprover, string creatorUserId, string creatorFullName)
+        public async Task<IActionResult> InsertAsync([FromBody]MonHocMeta monHocMeta, string idhocky, TypeDataApprover typeApprover ,string mamonhoc,string tenmonhoc)
         {
-            var result = await _imonhocService.InsertAsync(monHocMeta,idhocky, typeApprover,CurrentUser.MaGiangVien,CurrentUser.FullName);
+            var result = await _imonhocService.InsertAsync(monHocMeta,idhocky, typeApprover,CurrentUser.MaGiangVien,CurrentUser.FullName, mamonhoc, tenmonhoc);
             if (result.Code <= 0)
             {
                 //_logger.LogError("Insert MonHocs controller error " + result.Code);
@@ -60,10 +60,10 @@ namespace WebSite.Core.API.Controllers
         }
 
         [SwaggerOperation(Summary = "UpdateAsyncMonHoc", Description = "TypeApprover: 0 - GangVien,1 - HoiDong,2 - PhanBienvsPhanBien", OperationId = "UpdateAsyncMonHoc", Tags = new[] { "MonHoc" })]
-        [AcceptVerbs("PUT"), Route("{idmonhoc}/{typeApprover}")]
-        public async Task<IActionResult> UpdateAsync([FromBody] MonHocMeta monhocmeta, string idmonhoc, string idhocky, TypeDataApprover typeApprover)
+        [AcceptVerbs("PUT"), Route("{mamonhoc}/{tenmonhoc}/{idmonhoc}/{typeApprover}")]
+        public async Task<IActionResult> UpdateAsync([FromBody] MonHocMeta monhocmeta, string idmonhoc, string idhocky, TypeDataApprover typeApprover, string mamonhoc, string tenmonhoc)
         {
-            var result = await _imonhocService.UpdateAsync(monhocmeta, idhocky, idmonhoc, typeApprover,CurrentUser.MaGiangVien,CurrentUser.FullName);
+            var result = await _imonhocService.UpdateAsync(monhocmeta, idhocky, idmonhoc, typeApprover,CurrentUser.MaGiangVien,CurrentUser.FullName,mamonhoc,tenmonhoc);
             if (result.Code <= 0)
             {
                 //_logger.LogError("Insert MonHocs controller error " + result.Code);
